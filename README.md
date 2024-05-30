@@ -26,11 +26,13 @@ The evaluation script is provided in the `eval.py` file. The script can be run a
     ```bash
     python eval.py -c <path_to_config> -p <path_to_checkpoint> \
     --test_path <path_to_test_file> -ne <number_of_events> -bs <batch_size> \
-    -n <num_steps> -npf
+    -n <num_steps> -npf [--prefix <prefix>]
     ```
 - For the baseline slot attention model:
     ```bash
     python eval.py -c <path_to_config> -p <path_to_checkpoint> \
-    --test_path <path_to_test_file> -ne <number_of_events> -bs <batch_size>
+    --test_path <path_to_test_file> -ne <number_of_events> -bs <batch_size> [--prefix <prefix>]
+
+If the `--prefix` argument is provided, and `1rep` is in prefix, first 2M jets in the file will be omitted.
 
 Pre-trained models used in the paper can be found in the `trained_models` folder.

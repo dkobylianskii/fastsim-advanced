@@ -1,0 +1,78 @@
+{
+    "name": "sa_cocoa",
+
+    "model_type": "tspn",
+
+    "predict_set_size": true,
+
+    "learn_class": true,
+    "charged_only": false,
+    "per_event_scaling": true,
+
+    "reduce_ds_train": 300000,
+    "reduce_ds_val": 20000,
+    "eval_num_events": 300000,
+
+    "num_epochs": 100, 
+    "learningrate": 5e-4,
+    "batchsize": 500,
+    "num_workers": 5,
+
+    "n_replica": 1,
+
+    "path_train2": "/storage/agrp/dmitrykl/fastsim/data/ds_test/train_norep_filter.root",
+    "path_train": "/storage/agrp/dmitrykl/fastsim/data/ds_test/val_norep_filter.root",
+
+    "path_valid": "/storage/agrp/dmitrykl/fastsim/data/ds_test/val_norep_filter.root",
+
+    "path_test": "/storage/agrp/dmitrykl/fastsim/data/ds_test/train_norep_filter.root",
+    "path_test_reps": "/storage/agrp/dmitrykl/fastsim/data/newDS/test_filter.root",
+    
+    "loss_types": ["total_loss"],
+    "loss_types-": ["total_loss","kin_loss","num_loss","pt_loss","eta_loss","phi_loss","class_loss"],
+
+    "eval_dir": "/storage/agrp/soybna/FS_evals/SA/",
+
+    "class_embedding_size": 4,
+
+    "resume_from_checkpoint": null,
+
+    "embedding_model": {
+        "n_iter": 4,
+
+        "truth_inputsize": 11,
+        "truth_hidden_size": 100,
+        "truth_init_layers": [200, 150],
+
+        "truth_mpnn_layers": [150]
+    },
+
+    "output_model": {
+
+        "attention_type": "softmax",
+
+        "KQV_layers": [300,200,150,100,50],
+
+        "z_size": 50,
+
+        "max_particles": 35,
+
+        "num_slotattn": 3,
+
+        "set_size_embedding": 10,
+        "set_size_prediction_layers": [80,30],
+        "ptetaphi_prediction_layers": [100,70,30],
+        "class_prediction_layers": [100,70,30]
+
+    },
+
+    "var_transform": {
+        "particle_pt": {"mean": 8.47786 , "std": 1.01008},
+        "particle_eta": {"mean": 0.00960, "std": 1.28155},
+        "particle_phi": {"mean": 0.01208, "std": 1.80826},
+        "pflow_pt": {"mean": 8.47786 , "std": 1.01008},
+        "pflow_eta": {"mean": 0.00960, "std": 1.28155},
+        "pflow_phi": {"mean": 0.01208, "std": 1.80826}
+    }
+
+    }

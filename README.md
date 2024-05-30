@@ -22,8 +22,15 @@ python train.py -c <path_to_config_file> --gpus 0
 
 The evaluation script is provided in the `eval.py` file. The script can be run as follows:
 
-```bash
-python eval.py -c <path_to_config> -p <path_to_checkpoint> -n <num_steps> --test_path <path_to_test_file> -ne <number_of_events> -bs <batch_size> -npf
-```
+- For the diffusion models:
+    ```bash
+    python eval.py -c <path_to_config> -p <path_to_checkpoint> \
+    --test_path <path_to_test_file> -ne <number_of_events> -bs <batch_size> \
+    -n <num_steps> -npf
+    ```
+- For the baseline slot attention model:
+    ```bash
+    python eval.py -c <path_to_config> -p <path_to_checkpoint> \
+    --test_path <path_to_test_file> -ne <number_of_events> -bs <batch_size>
 
 Pre-trained models used in the paper can be found in the `trained_models` folder.
